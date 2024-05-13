@@ -1,4 +1,4 @@
-import TaskDuration from "@/enum/TalksDuration";
+import TaskDuration from "@/enum/TasksDuration";
 
 export default class Task {
     id: string;
