@@ -1,26 +1,37 @@
-import React, { ReactNode } from 'react';
-import { Inter } from 'next/font/google';
-import Navbar from '@/app/components/Navbar';
-import Head from 'next/head';
+'use client'
 
-const inter = Inter({ subsets: ['latin'] });
+import React, { ReactNode } from "react";
+import { Inter } from "next/font/google";
+import Navbar from "@/app/components/Navbar";
+import './globals.css'
+import { AuthContextProvider } from '@/app/context/AuthContext'
 
-const RootLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
+const inter = Inter({ subsets: ["latin"] });
+interface Props {
+  children: React.ReactElement
+}
+
+const RootLayout: React.FC<Props> = ({ children }) : React.ReactElement => {
   const commonLinks = [
-    { url: '/', label: 'Home' },
-    { url: '/pages/schedule', label: 'Schedule' },
-    { url: '/pages/tasks', label: 'Tasks' }
+    { url: "/", label: "Home" },
+    { url: "/pages/schedule", label: "Schedule" },
+    { url: "/pages/tasks", label: "Tasks" },
   ];
 
   return (
     <>
-      <Head>
-        <title>Your Page Title</title>
-      </Head>
-      <div className={inter.className}>
-        <Navbar links={commonLinks} />
-        {children}
-      </div>
+    <html lang="en">
+    <body>
+    <AuthContextProvider>
+
+          <div className={inter.className}>
+            <Navbar links={commonLinks} />
+            {children}
+          </div>
+          </AuthContextProvider>
+
+        </body>
+      </html>
     </>
   );
 };
