@@ -1,10 +1,11 @@
 import { initializeApp, getApps } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { getAnalytics, isSupported } from "firebase/analytics";
 import dotenv from 'dotenv';
 
 dotenv.config();
 
+// Configuración de Firebase
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
@@ -15,19 +16,23 @@ const firebaseConfig = {
   measurementId: process.env.MEASUREMENT_ID
 };
 
-const firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+// Inicializar Firebase si aún no se ha inicializado
+const apps = getApps();
+const firebaseApp = apps.length === 0 ? initializeApp(firebaseConfig) : apps[0];
 
-// Inicializar Firebase Analytics solo en el cliente
+// Inicializar Firebase Analytics solo en el cliente si es compatible
 if (typeof window !== 'undefined') {
-  isSupported().then(supported => {
-    if (supported) {
-      getAnalytics(firebase_app);
-    }
-  }).catch(err => {
-    console.error(err);
-  });
+  isSupported()
+    .then(supported => {
+      if (supported) {
+        getAnalytics(firebaseApp);
+      }
+    })
+    .catch(err => {
+      console.error('Error initializing Firebase Analytics:', err);
+    });
 }
 
 // Exportar la instancia de autenticación
-export const auth = getAuth(firebase_app);
-export default firebase_app;
+export const auth = getAuth(firebaseApp);
+export default firebaseApp;
