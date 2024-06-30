@@ -1,38 +1,31 @@
 import { initializeApp, getApps } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import { getAnalytics, isSupported } from "firebase/analytics";
-import dotenv from 'dotenv';
+import { getAuth } from "firebase/auth";
 
-dotenv.config();
 
-// Configuración de Firebase
+
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID
+  apiKey: "AIzaSyB8CwM3ToeRoX-Sqdscw8Ri7JhNBbgUuO4",
+  authDomain: "schedule-88e7a.firebaseapp.com",
+  projectId: 'schedule-88e7a',
+  storageBucket: "schedule-88e7a.appspot.com",
+  messagingSenderId: "122655986377",
+  appId: "1:122655986377:web:aa0f3f2cceca044f45b318",
+  measurementId: "G-S9XN6ZB748 "
 };
 
-// Inicializar Firebase si aún no se ha inicializado
-const apps = getApps();
-const firebaseApp = apps.length === 0 ? initializeApp(firebaseConfig) : apps[0];
 
-// Inicializar Firebase Analytics solo en el cliente si es compatible
+const firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+
 if (typeof window !== 'undefined') {
-  isSupported()
-    .then(supported => {
-      if (supported) {
-        getAnalytics(firebaseApp);
-      }
-    })
-    .catch(err => {
-      console.error('Error initializing Firebase Analytics:', err);
-    });
+  isSupported().then(supported => {
+    if (supported) {
+      getAnalytics(firebase_app);
+    }
+  }).catch(err => {
+    console.error(err);
+  });
 }
 
-// Exportar la instancia de autenticación
-export const auth = getAuth(firebaseApp);
-export default firebaseApp;
+export const auth = getAuth(firebase_app);
+export default firebase_app;
