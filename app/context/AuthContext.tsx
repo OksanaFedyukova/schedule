@@ -6,6 +6,7 @@ import firebase_app from '@/firebase/config';
 interface User {
   uid: string;
   email: string | null;
+  password: string | null;
 }
 
 interface AuthContextType {
@@ -33,8 +34,7 @@ export const AuthContextProvider: React.FC<Props> = ({ children }: Props) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser({ uid: user.uid, email: user.email });
-        setUser(null);
+        setUser({ uid: user.uid, email: user.email, password: user.password });
       }
       setLoading(false);
     });

@@ -16,6 +16,7 @@ const RootLayout: React.FC<Props> = ({ children }) : React.ReactElement => {
     { url: "/", label: "Home" },
     { url: "/pages/schedule", label: "Schedule" },
     { url: "/pages/tasks", label: "Tasks" },
+    
   ];
 
   return (
