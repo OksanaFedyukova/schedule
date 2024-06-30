@@ -19,3 +19,127 @@ You're about to initialize a Firebase project in this directory:
 
   C:\Users\aksen\Documents\Develop\schedule
 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-06-30T12:04:48.630Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-06-30T12:04:49.367Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-06-30T12:04:49.367Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project schedule-88e7a (Schedule) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-06-30T12:04:51.777Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-06-30T12:04:51.777Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:04:52.716Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firebasedatabase.googleapis.com 200
+[debug] [2024-06-30T12:04:52.716Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-06-30T12:04:52.718Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/schedule-88e7a/locations/-/instances/schedule-88e7a-default-rtdb [none]
+[debug] [2024-06-30T12:04:53.503Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/schedule-88e7a/locations/-/instances/schedule-88e7a-default-rtdb 200
+[debug] [2024-06-30T12:04:53.503Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/schedule-88e7a/locations/-/instances/schedule-88e7a-default-rtdb {"name":"projects/122655986377/locations/europe-west1/instances/schedule-88e7a-default-rtdb","project":"projects/122655986377","databaseUrl":"https://schedule-88e7a-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2024-06-30T12:05:03.087Z] >>> [apiv2][query] GET https://schedule-88e7a-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json [none]
+[debug] [2024-06-30T12:05:03.254Z] <<< [apiv2][status] GET https://schedule-88e7a-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json 200
+[debug] [2024-06-30T12:05:03.254Z] <<< [apiv2][body] GET https://schedule-88e7a-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json [stream]
+[info] +  Database Rules for schedule-88e7a-default-rtdb have been written to y. 
+[info] Future modifications to y will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2024-06-30T12:05:03.261Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firestore.googleapis.com [none]
+[debug] [2024-06-30T12:05:03.261Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firestore.googleapis.com x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:05:04.147Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firestore.googleapis.com 200
+[debug] [2024-06-30T12:05:04.148Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/firestore.googleapis.com [omitted]
+[debug] [2024-06-30T12:05:04.148Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default) [none]
+[debug] [2024-06-30T12:05:04.352Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default) 200
+[debug] [2024-06-30T12:05:04.352Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default) {"name":"projects/schedule-88e7a/databases/(default)","uid":"157bb9fe-0e0a-4759-b0ec-22259bd39944","createTime":"2024-06-30T12:00:04.770721Z","updateTime":"2024-06-30T12:00:04.770721Z","locationId":"eur3","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2024-06-30T12:00:04.770721Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"e","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","etag":"IPmf2dOkg4cDMOi0sKqkg4cD"}
+[debug] [2024-06-30T12:05:04.352Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-06-30T12:05:04.353Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-30T12:05:04.353Z] > authorizing via signed-in user (avseniya22@gmail.com)
+[debug] [2024-06-30T12:05:04.353Z] [iam] checking project schedule-88e7a for permissions ["firebase.projects.get"]
+[debug] [2024-06-30T12:05:04.354Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions [none]
+[debug] [2024-06-30T12:05:04.354Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:05:04.355Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-06-30T12:05:05.075Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions 200
+[debug] [2024-06-30T12:05:05.076Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-06-30T12:05:31.065Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/schedule-88e7a/releases pageSize=10&pageToken=
+[debug] [2024-06-30T12:05:31.834Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/schedule-88e7a/releases 200
+[debug] [2024-06-30T12:05:31.834Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/schedule-88e7a/releases {"releases":[{"name":"projects/schedule-88e7a/releases/cloud.firestore","rulesetName":"projects/schedule-88e7a/rulesets/0ad35ecc-24f8-4a8e-a2b4-2a3745613132","createTime":"2024-06-30T12:00:11.526753Z","updateTime":"2024-06-30T12:00:11.526753Z"}]}
+[debug] [2024-06-30T12:05:31.834Z] Found ruleset: projects/schedule-88e7a/rulesets/0ad35ecc-24f8-4a8e-a2b4-2a3745613132
+[debug] [2024-06-30T12:05:31.835Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/schedule-88e7a/rulesets/0ad35ecc-24f8-4a8e-a2b4-2a3745613132 [none]
+[debug] [2024-06-30T12:05:32.501Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/schedule-88e7a/rulesets/0ad35ecc-24f8-4a8e-a2b4-2a3745613132 200
+[debug] [2024-06-30T12:05:32.501Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/schedule-88e7a/rulesets/0ad35ecc-24f8-4a8e-a2b4-2a3745613132 [omitted]
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-06-30T12:05:41.188Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2024-06-30T12:05:41.190Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2024-06-30T12:05:41.468Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2024-06-30T12:05:41.468Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2024-06-30T12:05:41.549Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2024-06-30T12:05:41.549Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/schedule-88e7a/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/schedule-88e7a/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] 
+=== Functions Setup
+[debug] [2024-06-30T12:05:41.554Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-30T12:05:41.554Z] > authorizing via signed-in user (avseniya22@gmail.com)
+[debug] [2024-06-30T12:05:41.554Z] [iam] checking project schedule-88e7a for permissions ["firebase.projects.get"]
+[debug] [2024-06-30T12:05:41.555Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions [none]
+[debug] [2024-06-30T12:05:41.555Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:05:41.555Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-06-30T12:05:42.230Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions 200
+[debug] [2024-06-30T12:05:42.231Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/schedule-88e7a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-06-30T12:05:42.231Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-06-30T12:05:42.231Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:05:42.234Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-06-30T12:05:42.234Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:05:43.079Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com 200
+[debug] [2024-06-30T12:05:43.080Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-06-30T12:05:43.080Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2024-06-30T12:05:43.081Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:05:43.115Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/runtimeconfig.googleapis.com 200
+[debug] [2024-06-30T12:05:43.115Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-06-30T12:05:43.861Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2024-06-30T12:05:43.861Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2024-06-30T12:05:53.867Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-06-30T12:05:53.867Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/schedule-88e7a
+[debug] [2024-06-30T12:05:54.710Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com 200
+[debug] [2024-06-30T12:05:54.710Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/schedule-88e7a/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/package.json 
+[info] +  Wrote functions/.eslintrc.js 
+[info] +  Wrote functions/index.js 
+[info] +  Wrote functions/.gitignore 
+[info] 
+=== Hosting Setup
+[debug] [2024-06-30T12:07:02.047Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/schedule-88e7a [none]
+[debug] [2024-06-30T12:07:02.370Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/schedule-88e7a 200
+[debug] [2024-06-30T12:07:02.371Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/schedule-88e7a {"projectId":"schedule-88e7a","projectNumber":"122655986377","displayName":"Schedule","name":"projects/schedule-88e7a","resources":{"hostingSite":"schedule-88e7a","realtimeDatabaseInstance":"schedule-88e7a-default-rtdb"},"state":"ACTIVE","etag":"1_36db7a74-8250-479c-a8ce-fb477787edde"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
