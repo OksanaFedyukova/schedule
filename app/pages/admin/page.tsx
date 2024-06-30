@@ -13,6 +13,7 @@ function Admin() {
 
     return (
     <h1>Only logged in users can view this page</h1>
+    
   );
 }
 

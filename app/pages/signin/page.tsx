@@ -24,7 +24,7 @@ function Signin() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="w-full max-w-md p-8 space-y-6 bg-white rounded shadow-md">
-          <h1 className="text-2xl font-bold text-center mt-6 mb-3">Sign up</h1>
+          <h1 className="text-2xl font-bold text-center mt-6 mb-3">Sign in</h1>
           <form onSubmit={handleForm} className="space-y-6">
             <label htmlFor="email" className="block">
               <p className="text-sm font-medium text-gray-700">Email</p>
@@ -54,7 +54,7 @@ function Signin() {
               type="submit"
               className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-200"
             >
-              Sign up
+              Sign in
             </button>
           </form>
         </div>

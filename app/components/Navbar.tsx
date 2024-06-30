@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
         {user ? (
           <button
             onClick={() => handleSignOut()}
-            className="px-4 py-2 text-white rounded bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
+          className="text-white hover:text-gray-300"
           >
             Logout
           </button>
