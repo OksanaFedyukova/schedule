@@ -8,7 +8,7 @@ const TasksList = () => {
   const [showForm, setShowForm] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [editTaskId, setEditTaskId] = useState(null);
-  const [message, setMessage] = useState(null); 
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -29,10 +29,10 @@ const TasksList = () => {
     try {
       await deleteTask(taskId);
       setTasks(tasks.filter(task => task.id !== taskId));
-      setMessage({ type: 'success', content: ' Task deleted successfully.' });
+      setMessage({ type: 'success', content: 'Task deleted successfully.' });
     } catch (error) {
       console.error('Error deleting task:', error);
-      setMessage({ type: 'error', content:error.message });
+      setMessage({ type: 'error', content: `Error, ${error.mesaage}` });
     }
   };
 
@@ -56,20 +56,20 @@ const TasksList = () => {
     try {
       if (editMode && editTaskId) {
         await updateTask(editTaskId, newTask);
-        setMessage({ type: 'success', content: 'New task created successfully' });
+        setTasks(tasks.map(task => task.id === editTaskId ? { id: editTaskId, ...newTask } : task));
+        setMessage({ type: 'success', content: 'Task updated successfully.' });
       } else {
         const newTaskId = await createTask(newTask);
-        setMessage({ type: 'success', content: 'New task created successfully' });
+        setTasks([...tasks, { id: newTaskId, ...newTask }]);
+        setMessage({ type: 'success', content: 'New task created successfully.' });
       }
-      const updatedTasksList = await getTasks();
-      setTasks(updatedTasksList);
       setNewTask({ title: '', duration: '' });
       setShowForm(false);
       setEditMode(false);
       setEditTaskId(null);
     } catch (error) {
       console.error('Error:', error);
-      setMessage({ type: 'error', content:error.message });
+      setMessage({ type: 'error', content: `Error, ${error.mesaage}` });
     }
   };
 
@@ -77,9 +77,10 @@ const TasksList = () => {
     return <p>Loading...</p>;
   }
 
+
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Lista de Tareas</h2>
+      <h2 className="text-2xl font-bold mb-4">Tasks List</h2>
 
       {message && (
         <div className={`p-4 mb-4 ${message.type === 'success' ? 'bg-green-100 text-green-900' : 'bg-red-100 text-red-900'}`}>
@@ -96,15 +97,16 @@ const TasksList = () => {
           setNewTask({ title: '', duration: '' });
         }}
       >
-        {showForm ? 'Cancel' : 'Create'}
+        {showForm ? 'Cancel' : 'Create New Task'}
       </button>
 
       {showForm && (
         <form onSubmit={handleSubmit} className="mb-4">
           <div className="flex mb-4">
+
             <div className="w-1/2 mr-2">
               <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-                Título
+                Title
               </label>
               <input
                 type="text"
@@ -117,7 +119,7 @@ const TasksList = () => {
             </div>
             <div className="w-1/2 ml-2">
               <label htmlFor="duration" className="block text-sm font-medium text-gray-700">
-                Duración
+                Duration
               </label>
               <input
                 type="text"
@@ -133,7 +135,7 @@ const TasksList = () => {
             type="submit"
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
-            {editMode ? 'Update' : 'Create'}
+            {editMode ? 'Update Task' : 'Create Task'}
           </button>
         </form>
       )}
@@ -142,14 +144,18 @@ const TasksList = () => {
         <table className="min-w-full border-collapse border border-gray-200">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Título</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duración</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {tasks.map((task, index) => (
               <tr key={index}>
+                <td className="px-6 py-4 whitespace-nowrap">{task.id}</td>
+
                 <td className="px-6 py-4 whitespace-nowrap">{task.title}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{task.duration}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
