@@ -1,4 +1,5 @@
 import { initializeApp, getApps } from "firebase/app";
+import { getFirestore } from 'firebase/firestore/lite';
 
 
 
@@ -14,7 +15,8 @@ const firebaseConfig = {
 };
 
 let firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+const db = getFirestore(firebase_app);
 
-export default firebase_app;
+export  {firebase_app, db};
 
 

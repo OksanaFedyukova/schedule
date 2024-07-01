@@ -28,12 +28,15 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
           ))}
         </ul>
         {user ? (
+          <>
           <button
             onClick={() => handleSignOut()}
           className="text-white hover:text-gray-300"
           >
             Logout
-          </button>
+          </button> 
+                      <div className="mt-2 text-white">Welcome, {user.email}</div>
+</>
         ) : (
           <Link href="/pages/signin" className="text-white hover:text-gray-300">
 Login          </Link>

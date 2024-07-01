@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import Loader from "../components/Loader";
 import { onAuthStateChanged, getAuth, signOut, Auth } from 'firebase/auth';
-import firebase_app from '@/firebase/config';
+import {firebase_app} from '@/firebase/config';
 
 interface User {
   uid: string;
