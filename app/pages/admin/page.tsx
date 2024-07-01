@@ -2,6 +2,7 @@
 import React from "react";
 import { useAuthContext } from "@/app/context/AuthContext";
 import { useRouter } from "next/navigation";
+import TasksList from "@/app/components/Tasks/TasksList"
 
 function Admin() {
     const { user } = useAuthContext();
@@ -14,7 +15,10 @@ function Admin() {
     }, [user, router]);
 
     return (
-        <h1>Only logged in users can view this page</h1>
+        <>
+         <h1>Only logged in users can view this page</h1>
+         <TasksList/>
+        </>
     );
 }
 

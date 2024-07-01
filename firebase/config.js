@@ -1,31 +1,20 @@
 import { initializeApp, getApps } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+
 
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB8CwM3ToeRoX-Sqdscw8Ri7JhNBbgUuO4",
-  authDomain: "schedule-88e7a.firebaseapp.com",
-  projectId: 'schedule-88e7a',
-  storageBucket: "schedule-88e7a.appspot.com",
-  messagingSenderId: "122655986377",
-  appId: "1:122655986377:web:aa0f3f2cceca044f45b318",
-  measurementId: "G-S9XN6ZB748 "
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
+let firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
-const firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-
-if (typeof window !== 'undefined') {
-  isSupported().then(supported => {
-    if (supported) {
-      getAnalytics(firebase_app);
-    }
-  }).catch(err => {
-    console.error(err);
-  });
-}
-
-export const auth = getAuth(firebase_app);
 export default firebase_app;
+
+
