@@ -17,8 +17,8 @@ function Signin() {
             return console.log(error)
         }
 
-        // else successful
-        console.log(result)
+        // Result Data of UserFirebase
+        console.log("RESULT OF SIGN IN", result)
         return router.push("/pages/admin")
     }
     return (
